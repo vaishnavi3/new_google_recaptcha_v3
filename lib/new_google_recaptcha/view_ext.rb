@@ -4,7 +4,7 @@ module NewGoogleRecaptcha
 
     def include_recaptcha_js
       raw %Q{
-        <script src="https://www.google.com/recaptcha/api.js?render=#{NewGoogleRecaptcha.site_key}" data-no-turbolink></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=#{NewGoogleRecaptcha.site_key}" data-turbolinks-track="true"></script>
       }
     end
 
