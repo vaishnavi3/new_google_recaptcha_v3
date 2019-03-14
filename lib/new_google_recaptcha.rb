@@ -4,7 +4,6 @@ module NewGoogleRecaptcha
   mattr_accessor :site_key
   mattr_accessor :secret_key
   mattr_accessor :minimum_score
-  mattr_accessor :onload_function_name
 
 
   def self.setup

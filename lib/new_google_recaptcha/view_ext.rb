@@ -4,7 +4,7 @@ module NewGoogleRecaptcha
 
     def include_recaptcha_js
       raw %Q{
-        <script src="https://www.google.com/recaptcha/api.js?render=#{NewGoogleRecaptcha.site_key}"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=#{NewGoogleRecaptcha.site_key}" data-no-turbolink></script>
       }
     end
 
@@ -13,11 +13,11 @@ module NewGoogleRecaptcha
       raw %Q{
         <input name="new_google_recaptcha_token" type="hidden" id="#{id}"/>
         <script>
-          function #{NewGoogleRecaptcha.onload_function_name}() {
+          grecaptcha.ready(function() {
             grecaptcha.execute("#{NewGoogleRecaptcha.site_key}", {action: "#{action}"}).then(function(token) {
               document.getElementById("#{id}").value = token;
             });
-          }
+          });
         </script>
       }
     end
